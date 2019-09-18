@@ -1,0 +1,21 @@
+.todo-item {
+  background: #f4f4f4;
+  padding: 12px;
+  border-bottom: 1px #ccc dotted;
+  text-transform: capitalize;
+  font-size: 1em;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.del {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 5px 9px;
+  border-radius: 50%;
+  cursor: pointer;
+  float: right;
+}
