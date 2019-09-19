@@ -26,7 +26,6 @@ export const getTodos = () => dispatch => {
 
 //update
 export const editTodo = todo => dispatch => {
-    console.log(todo)
     Axios.put(`${baseUrl}/${todo.id}`, todo)
         .then(res => dispatch({
             type: EDIT_TODO,

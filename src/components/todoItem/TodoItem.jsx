@@ -12,8 +12,16 @@ class TodoItem extends Component {
     }
 
     onChange = () => {
-        this.props.todo.completed = !this.props.todo.completed
-        this.props.editTodo(this.props.todo)
+        // let todo = {
+        //     id: this.props.todo.id,
+        //     title: this.props.todo.title,
+        //     completed: this.props.todo.completed
+        // }
+
+        let todo ={...this.props.todo};
+
+        todo.completed = !todo.completed
+        this.props.editTodo(todo)
     }
 
     onClick = () => {

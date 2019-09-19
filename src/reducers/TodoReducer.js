@@ -7,6 +7,7 @@ const initialState = {
 }
 
 export default function (state = initialState, action) {
+    var todos;
     switch (action.type) {
         case ADD_TODO:
             return {
@@ -19,12 +20,21 @@ export default function (state = initialState, action) {
                 items: action.payload
             }
         case EDIT_TODO:
+            todos = [...state.items]
+            let editedTodo = action.payload
+
+            const index = todos.findIndex(todo => todo.id === editedTodo.id);
+            if (index > -1) {
+                todos[index] = editedTodo;
+            }
+
+            console.log(todos)
             return {
                 ...state,
-                item: action.payload
+                items: todos,
             }
         case DELETE_TODO:
-            let todos = [...state.items]
+            todos = [...state.items]
             todos = todos.filter(todo => todo.id !== action.payload)
             return {
                 ...state,
