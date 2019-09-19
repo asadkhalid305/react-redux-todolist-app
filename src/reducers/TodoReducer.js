@@ -11,7 +11,7 @@ export default function (state = initialState, action) {
         case ADD_TODO:
             return {
                 ...state,
-                item: action.payload
+                items: [action.payload, ...state.items]
             }
         case GET_TODOS:
             return {
@@ -24,9 +24,11 @@ export default function (state = initialState, action) {
                 item: action.payload
             }
         case DELETE_TODO:
+            let todos = [...state.items]
+            todos = todos.filter(todo => todo.id !== action.payload)
             return {
                 ...state,
-                item: action.payload
+                items: todos
             }
 
         case TITLE_CHANGED:

@@ -13,7 +13,6 @@ class TodoItem extends Component {
 
     onChange = () => {
         this.props.todo.completed = !this.props.todo.completed
-
         this.props.editTodo(this.props.todo)
     }
 

@@ -26,6 +26,7 @@ export const getTodos = () => dispatch => {
 
 //update
 export const editTodo = todo => dispatch => {
+    console.log(todo)
     Axios.put(`${baseUrl}/${todo.id}`, todo)
         .then(res => dispatch({
             type: EDIT_TODO,
@@ -39,7 +40,7 @@ export const deleteTodo = todo => dispatch => {
     Axios.delete(`${baseUrl}/${todo.id}`)
         .then(res => dispatch({
             type: DELETE_TODO,
-            payload: res.data
+            payload: todo.id
         }))
         .catch(err => console.log(err))
 }
