@@ -2,7 +2,6 @@ import { GET_TODOS, ADD_TODO, EDIT_TODO, DELETE_TODO, TITLE_CHANGED } from '../a
 
 const initialState = {
     items: [],
-    item: {},
     title: ''
 }
 
@@ -10,6 +9,7 @@ export default function (state = initialState, action) {
     var todos;
     switch (action.type) {
         case ADD_TODO:
+            console.log(action.payload)
             return {
                 ...state,
                 items: [action.payload, ...state.items]
@@ -22,13 +22,14 @@ export default function (state = initialState, action) {
         case EDIT_TODO:
             todos = [...state.items]
             let editedTodo = action.payload
+            
+            console.log(state.items)
 
             const index = todos.findIndex(todo => todo.id === editedTodo.id);
             if (index > -1) {
                 todos[index] = editedTodo;
             }
 
-            console.log(todos)
             return {
                 ...state,
                 items: todos,

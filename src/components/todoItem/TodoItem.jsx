@@ -12,14 +12,7 @@ class TodoItem extends Component {
     }
 
     onChange = () => {
-        // let todo = {
-        //     id: this.props.todo.id,
-        //     title: this.props.todo.title,
-        //     completed: this.props.todo.completed
-        // }
-
-        let todo ={...this.props.todo};
-
+        let todo = { ...this.props.todo };
         todo.completed = !todo.completed
         this.props.editTodo(todo)
     }
@@ -45,8 +38,4 @@ TodoItem.propTypes = {
     todo: PropTypes.object.isRequired
 }
 
-const mapsStateToProps = state => ({
-    todos: state.todos.item,
-})
-
-export default connect(mapsStateToProps, { editTodo, deleteTodo })(TodoItem)
+export default connect(null, { editTodo, deleteTodo })(TodoItem)
